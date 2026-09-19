@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Menentukan karakter huruf standar (UTF-8) -->
+    <meta charset="UTF-8">
+    
+    <!-- Wajib: Agar tampilan website responsive (menyesuaikan ukuran layar HP/Laptop) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Judul yang akan muncul di tab browser -->
+    <title>Midterm ICT Assessment</title>
+    
+    <!-- Wajib: Memanggil Tailwind CSS v4 lewat CDN agar class styling bisa dipakai -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<!-- bg-pink-50: Warna background dasar | min-h-screen: Tinggi body minimal selayar penuh -->
+<body class="bg-pink-50 font-sans min-h-screen py-10 px-4">
+
+    <!-- max-w-4xl & mx-auto: Membatasi lebar konten & memosisikan di tengah layar -->
+    <div class="max-w-4xl mx-auto space-y-10">
+
+        <!-- ========================================== -->
+        <!-- 1. BAGIAN WEBSITE HEADER                   -->
+        <!-- ========================================== -->
+        <!-- bg-gradient-to-r: Efek warna gradasi dari pink-400 ke pink-500 ke arah kanan -->
+        <header class="bg-gradient-to-r from-pink-400 to-pink-500 text-white p-6 sm:p-8 rounded-2xl shadow-md text-center">
+            <!-- Judul Utama -->
+            <h1 class="text-2xl sm:text-4xl font-bold tracking-tight mb-2">Registration & Data System</h1>
+            <!-- Deskripsi Singkat Header -->
+            <p class="text-pink-100 text-sm sm:text-base">Complete the registration form and check the registered participant data below.</p>
+        </header>
+
+        <!-- ========================================== -->
+        <!-- 2. BAGIAN REGISTRATION FORM                -->
+        <!-- ========================================== -->
+        <!-- Card Container: background putih, sudut melengkung (rounded-2xl), dan bayangan (shadow-lg) -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-pink-200">
+            <h2 class="text-xl font-bold text-gray-800 mb-6 border-b pb-2 border-pink-100">📋 Registration Form</h2>
+            
+            <!-- space-y-5: Otomatis memberi jarak vertikal antar-elemen input -->
+            <form action="#" method="POST" class="space-y-5">
+                
+                <!-- INPUT 1: TEXT (NAMA LENGKAP) -->
+                <div>
+                    <!-- for="fullname" harus sama dengan id="fullname" milik input -->
+                    <label for="fullname" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                    <!-- type="text": Input berupa teks bebas | placeholder: teks petunjuk transparan -->
+                    <!-- focus:ring-2 & focus:border-pink-400: Efek garis menyala pink saat diklik -->
+                    <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 outline-none transition">
+                </div>
+
+                <!-- INPUT 2: TEL (NOMOR TELEPON) -->
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <!-- type="tel": Khusus nomor telp | pattern="[0-9]{10,13}": Hanya boleh angka 10-13 digit -->
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10,13}" placeholder="081234567890" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 outline-none transition">
+                </div>
+
+                <!-- INPUT 3: SELECT / DROPDOWN -->
+                <div>
+                    <label for="category" class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                    <select id="category" name="category" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 outline-none transition bg-white">
+                        <!-- disabled selected: Opsi ini tidak bisa dipilih kembali setelah memilih opsi lain -->
+                        <option value="" disabled selected>Select category</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <!-- INPUT 4: RADIO BUTTONS -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Participation Type</label>
+                    <!-- flex gap-6: Menyusun pilihan radio secara horizontal/sejajar -->
+                    <div class="flex gap-6">
+                        <label class="inline-flex items-center cursor-pointer">
+                            <!-- Note: name="type" harus SAMA pada kedua radio agar hanya bisa pilih salah satu -->
+                            <!-- accent-pink-500: Mewarnai bulat radio button menjadi pink saat dicentang -->
+                            <input type="radio" name="type" value="individual" class="accent-pink-500" required>
+                            <span class="ml-2 text-sm text-gray-700">Individual</span>
+                        </label>
+                        <label class="inline-flex items-center cursor-pointer">
+                            <input type="radio" name="type" value="team" class="accent-pink-500">
+                            <span class="ml-2 text-sm text-gray-700">Team</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- INPUT 5: TEXTAREA -->
+                <div>
+                    <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Project Description</label>
+                    <!-- rows="3": Tinggi kotak pesan setara 3 baris teks -->
+                    <textarea id="description" name="description" rows="3" placeholder="Briefly describe your project..."
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 outline-none transition"></textarea>
+                </div>
+
+                <!-- SUBMIT BUTTON -->
+                <!-- hover:bg-pink-600: Mengubah warna tombol jadi pink lebih gelap saat kursor menempel -->
+                <button type="submit"
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-4 rounded-lg shadow-md transition duration-200">
+                    Submit Registration
+                </button>
+            </form>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 3. BAGIAN DATA TABLE                       -->
+        <!-- ========================================== -->
+        <!-- overflow-x-auto: Supaya tabel bisa di-scroll kesamping kalau dibuka di HP -->
+        <section class="bg-white rounded-2xl shadow-lg border border-pink-200 overflow-hidden">
+            <div class="p-6 border-b border-pink-100">
+                <h2 class="text-xl font-bold text-gray-800">📊 Participant List</h2>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <!-- border-collapse: Menghilangkan celah ganda antar border sel tabel -->
+                <table class="w-full text-left border-collapse">
+                    
+                    <!-- THEAD: Bagian Judul Kolom Tabel -->
+                    <thead>
+                        <tr class="bg-pink-100 text-pink-900 border-b border-pink-200 text-xs uppercase tracking-wider">
+                            <th class="py-3 px-4 text-center">No</th>
+                            <th class="py-3 px-4">Name</th>
+                            <th class="py-3 px-4">Category</th>
+                            <th class="py-3 px-4">Status</th>
+                        </tr>
+                    </thead>
+                    
+                    <!-- TBODY: Bagian Isi Data Tabel -->
+                    <!-- divide-y: Otomatis memberi garis horizontal pembatas antar-baris -->
+                    <tbody class="divide-y divide-pink-100 text-sm text-gray-700">
+                        <!-- Baris Data 1 -->
+                        <tr class="hover:bg-pink-50/50 transition">
+                            <td class="py-3 px-4 text-center font-medium">1</td>
+                            <td class="py-3 px-4 font-medium text-gray-900">Audrey Zhafira</td>
+                            <td class="py-3 px-4">Student</td>
+                            <td class="py-3 px-4"><span class="bg-green-100 text-green-700 px-2.5 py-1 rounded-full text-xs font-semibold">Active</span></td>
+                        </tr>
+                        <!-- Baris Data 2 -->
+                        <tr class="hover:bg-pink-50/50 transition">
+                            <td class="py-3 px-4 text-center font-medium">2</td>
+                            <td class="py-3 px-4 font-medium text-gray-900">Gracia Wipson</td>
+                            <td class="py-3 px-4">Student</td>
+                            <td class="py-3 px-4"><span class="bg-green-100 text-green-700 px-2.5 py-1 rounded-full text-xs font-semibold">Active</span></td>
+                        </tr>
+                    </tbody>
+                    <!-- TFOOT: Bagian Kaki/Ringkasan Tabel -->
+                    <tfoot>
+                        <tr class="bg-pink-50 text-xs text-pink-600 font-semibold text-center border-t border-pink-200">
+                            <!-- colspan="4": Menggabungkan 4 kolom menjadi 1 sel besar membentang -->
+                            <td colspan="4" class="py-3 px-4">Total Participants: 2 Active Students</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
